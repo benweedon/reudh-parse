@@ -1,7 +1,9 @@
-mod node;
+extern crate petgraph;
+
+mod graph;
 mod result;
 
-pub use node::Node;
+pub use graph::Graph;
 pub use result::{Error, Result};
 
 #[derive(Debug)]
@@ -19,21 +21,18 @@ impl<'a> Etym<'a> {
     }
 }
 
-pub fn parse<'a>(etym: &Etym<'a>) -> Result<Node<'a>> {
-    Ok(Node::new(etym.word))
+pub fn parse<'a>(_etym: &Etym<'a>) -> Result<Graph<'a>> {
+    Ok(Graph::new())
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn parse_works() {
         let etym = Etym::new("word", "definition");
         let result = parse(&etym);
         assert!(result.is_ok());
-        let node = result.unwrap();
-        assert_eq!(node.name, etym.word);
-        assert_eq!(node.parents.borrow().len(), 0);
-        assert_eq!(node.children.borrow().len(), 0);
     }
 }
