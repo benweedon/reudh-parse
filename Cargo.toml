@@ -2,6 +2,12 @@
 name = "reudh-parse"
 version = "0.0.0"
 authors = ["Ben Weedon <ben.weedon@outlook.com>"]
+description = "The etymology parsing library used by *reudh"
+repository = "https://github.com/benweedon/reudh-parse"
+readme = "README.md"
+keywords = ["etymonline", "english", "linguistics", "etymology", "nlp"]
+categories = ["parsing", "text-processing", "algorithms"]
+license = "GPL-3.0"
 
 [dependencies]
 petgraph = "0.4.11"
